@@ -9,7 +9,13 @@
     --background: url(../background3.jpg);
     --background-body:rgba(230, 230, 230,1);
     --background-navbar: rgba(242, 242, 242,1);
-    --navbar: 'OSPDINDIN';
+    --background-worms:url(../worms-compost.gif);
+    --background-soil: url(../compost-heap.jpg);
+    --font-navbar: 'OSPDINDIN';
+    --menu-items:rgba(43, 43, 43,1);
+    --background-columns:rgba(12, 3, 0,1);
+    --main-font:'Roboto';
+
 }
 *{
     box-sizing:border-box;
@@ -23,18 +29,23 @@ body{
     height:100%;
     background:var(--background-body);
 }
-section.navbar-cont{
+#abso-nav{
     display:block;
+    position:absolute;
     width:100%;
-    height:20vh;
+    height:15vh;
+    top:0;
+    left:0;
 }
 nav{
+    position:sticky;
     display:flex;
+    justify-content:space-between;
     width:100%;
-    height:20vh;
-    background:var(--background-navbar);
+    height:15vh;
+//    background:var(--background-navbar);
     z-index:10;
-    box-shadow: 0 0.5px 5px 0.3px grey;
+//    box-shadow: 0 0.5px 5px 0.3px grey;
 }
 .header-logotype{
     display:flex;
@@ -54,43 +65,125 @@ nav ul{
     -webkit-align-items:center;
     height:100%;
     align-items:center;
-    width:75%;
-    font-family:var(--navbar);
-    font-size:2rem;
+    width:30%;
+    font-family:var(--font-navbar);
+    font-size:1.5rem;
     margin:0 1rem;
+}
+a{
+    color: white/*var(--menu-items)*/;
+    width:calc(33% - 3rem);
+    aspect-ratio: 1 / 1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    transition:background 0.5s;
+}
+a:hover{
+    background-color:rgba(3,3,3,0.5);
+
 
 }
 li{
+    cursor:pointer;
     display:flex;
     align-self:center;
-    margin:0 1.2rem;
-    height:90%;
+    margin:auto;
+/*     margin:0 1.2rem; */
+/*     height:90%; */
+
 }
 main{
     display:flex;
     align-items:center;
     width:100%;
-    height:80vh;
+    height:100vh;
 }
 .hero{
     display:flex;
     align-items:flex-end;
-    background-image:var(--background);
+    background-image:linear-gradient(30deg, black 0%, transparent 50%), var(--background) ;
     background-repeat:no-repeat;
     background-size:cover;
-    border-radius:50px;
-    box-shadow: 0 1px 10px 1px grey;
-    padding:3rem;
-    width:95%;
-    height:90%;
+//    border-radius:50px;
+//    box-shadow: 0 1px 10px 1px grey;
+    padding:8rem 4rem;
+    width:100%;
+    height:100%;
     margin:auto;
 }
-p{
-    font-family:'StandardBold';
-    font-size:1rem;
-    color:;
-    width:50%;
+p#intro{
+    font-family:'Roboto';
+    font-size:1.8rem;
+    letter-spacing:-1px;
+    line-height:1;
+    color:white;
+    width:40%;
+    text-align:justify;
 }
-strong{
-    font-size:1.5rem;
+#compost-cont{
+    width:100%;
+    height:100vh;
+    display:grid;
+    grid-template: 1fr 1fr / repeat(6, 1fr);
+}
+.vermicompost{
+    width:100%;
+    height:50vh;
+    background-image:var(--background-worms);
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center;
+    grid-area: 1 / 1 / 2 / 6;
+}
+.vermicompost:hover{
+
+}
+.vermicompost-desc{
+    width:100%;
+    display:flex;
+    height:50vh;
+    grid-area: 1 / 5 / 2 / 7;
+    justify-content:center;
+    align-items:center;
+    padding:3rem;
+    font-size:2rem;
+    color:white;
+    background:#090909;
+    font-family:var(--main-font);
+    letter-spacing:-1px;
+    line-height:1;
+/*     background-image:linear-gradient(90deg, #0C0300 0%, #1a1a1a 100%); */
+/*     background-image:linear-gradient(90deg, #090909 0%, #0C0300 100%); */
+}
+.aerobic-compost{
+    width:100%;
+    display:flex;
+    height:50vh;
+    background-image:var(--background-soil);
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center;
+    grid-area: 2 / 2 / 2 / 7;
+}
+.aerobic-compost:hover{
+
+}
+.aerobic-compost-desc{
+    width:100%;
+    display:flex;
+    height:50vh;
+    grid-area: 2 / 1 / 2 / 3;
+    justify-content:center;
+    align-items:center;
+    padding:3rem;
+    font-size:2rem;
+    color:white;
+    background:#090909;
+    font-family:var(--main-font);
+    letter-spacing:-1px;
+    line-height:1;
+/*     background-image:linear-gradient(90deg, #0C0300 0%, #090909 100%); */
+/*     background-image:linear-gradient(90deg, #1a1a1a 0%, #0C0300 100%); */
 }
