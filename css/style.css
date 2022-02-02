@@ -9,13 +9,18 @@
     --background: url(../background3.jpg);
     --background-body:rgba(230, 230, 230,1);
     --background-navbar: rgba(242, 242, 242,1);
-    --background-worms:url(../worms-compost.gif);
-    --background-soil: url(../compost-heap.jpg);
+    --background-one: url(../compost-heap.jpg);
+    --background-two: url(../community-comp.jpg);
+    --background-three: url(../worms-compost.gif);
+    --background-four: url(../background2.jpg);
+    --background-five: url(../community-comp.jpg);
     --font-navbar: 'OSPDINDIN';
-    --menu-items:rgba(43, 43, 43,1);
+    --menu-items:rgba(8, 8, 8,1);
     --background-columns:rgba(12, 3, 0,1);
     --main-font:'Roboto';
-
+    scroll-snap-type:y mandatory;
+    user-select: none;
+    cursor: url(../shovel-final.svg), auto;
 }
 *{
     box-sizing:border-box;
@@ -33,12 +38,12 @@ main{
     align-items:center;
     width:100%;
     height:100vh;
-    background-image:linear-gradient(30deg, black 0%, transparent 50%), var(--background) ;
+    background-image:linear-gradient(30deg, black 0%, transparent 50%), var(--background);
     background-repeat:no-repeat;
     background-size:cover;
 }
 header{
-    position:sticky;
+/*     position:sticky; */
     top:0;
 }
 #abso-nav{
@@ -52,15 +57,17 @@ header{
 nav{
     position:sticky;
     display:flex;
+    align-items:center;
     justify-content:space-between;
     width:100%;
-    height:100%;
+    height:80%;
     z-index:10;
 }
 .header-logotype{
+    margin:auto 0;
     display:flex;
     width:25%;
-    height:100%;
+    height:80%;
 
 }
 #web-name{
@@ -73,26 +80,26 @@ nav ul{
     justify-content:flex-end;
     align-items:center;
     -webkit-align-items:center;
-    height:100%;
+    height:50%;
     align-items:center;
-    width:30%;
+    width:45%;
     font-family:var(--font-navbar);
     font-size:1.5rem;
     margin:0 1rem;
+
 }
 a{
-    color: white/*var(--menu-items)*/;
+    color:var(--menu-items);
     width:calc(33% - 3rem);
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 2 / 1;
     display:flex;
     align-items:center;
     justify-content:center;
     margin:0 0.3rem;
-    border-radius:50%;
-    transition:background 0.5s;
+    transition:background 0.3s;
 }
 a:hover{
-    background-color:rgba(3,3,3,0.5);
+
 
 
 }
@@ -101,11 +108,11 @@ li{
     display:flex;
     align-self:center;
     margin:auto;
-/*     margin:0 1.2rem; */
-/*     height:90%; */
+    cursor: url(../shovel-final.svg), auto;
+
 
 }
-.hero{
+.landing-page{
     display:flex;
     align-items:flex-end;
     padding:8em 6rem;
@@ -122,68 +129,85 @@ p#intro{
     width:40%;
     text-align:justify;
 }
-#compost-cont{
+.grid-cont{
     width:100%;
     height:100vh;
     display:grid;
-    grid-template: 1fr 1fr / repeat(6, 1fr);
+    grid-template: repeat(12, 1fr) / repeat(12, 1fr);
+    grid-gap:0.6rem;
+    padding:0.6rem;
+    background-color:black;
 }
-.vermicompost{
-    width:100%;
-    height:50vh;
-    background-image:var(--background-worms);
+h3{
+    grid-area: 1 / 1 / 2 / 12;
+}
+.mosaic{
+    padding:1rem;
     background-repeat:no-repeat;
     background-size:cover;
+    -moz-background-size:cover;
+    -webkit-background-size:cover;
+    -o-background-size:cover;
     background-position:center;
-    grid-area: 1 / 1 / 2 / 6;
 }
-.vermicompost:hover{
-
+.huerta{
+    background-color:white;
 }
-.vermicompost-desc{
-    width:100%;
+.cards{
+    grid-area:2 / 2 / 13 / 12;
+    width:90%;
+    height:90%;
     display:flex;
-    height:50vh;
-    grid-area: 1 / 5 / 2 / 7;
+    margin:auto;
     justify-content:center;
     align-items:center;
-    padding:3rem;
-    font-size:2rem;
-    color:white;
-    background:#090909;
-    font-family:var(--main-font);
-    letter-spacing:-1px;
-    line-height:1;
-/*     background-image:linear-gradient(90deg, #0C0300 0%, #1a1a1a 100%); */
-/*     background-image:linear-gradient(90deg, #090909 0%, #0C0300 100%); */
+    border:2px solid red; 
 }
-.aerobic-compost{
-    width:100%;
-    display:flex;
-    height:50vh;
-    background-image:var(--background-soil);
-    background-repeat:no-repeat;
+.card{
     background-size:cover;
     background-position:center;
-    grid-area: 2 / 2 / 2 / 7;
+    width: 40%;
+    height:40%;
+    border:2px solid blue;
 }
-.aerobic-compost:hover{
+.cardnone{
+    background-image: url(../seeds.jpg);
+}
+.cardntwo{
+    background-image: url(../soil.jpg);
+}
+.cardnthree{
+    background-image: url(../bee.jpg);
+}
+.cardnfour{
+    background-image: url(../sunlight.jpg);
+}
+
+
+#pic-one{
+    grid-area: 1 / 1 / 6 / 5;
+    background-image: var(--background-one);
+}
+#pic-one:hover{
 
 }
-.aerobic-compost-desc{
-    width:100%;
-    display:flex;
-    height:50vh;
-    grid-area: 2 / 1 / 2 / 3;
-    justify-content:center;
-    align-items:center;
-    padding:3rem;
-    font-size:2rem;
-    color:white;
-    background:#090909;
-    font-family:var(--main-font);
-    letter-spacing:-1px;
-    line-height:1;
-/*     background-image:linear-gradient(90deg, #0C0300 0%, #090909 100%); */
-/*     background-image:linear-gradient(90deg, #1a1a1a 0%, #0C0300 100%); */
+
+#pic-two{
+    grid-area: 1 / 5 / 6 / 9;
+    background-image: var(--background-two);
+}
+
+#pic-three{
+    grid-area: 1 / 9 / 6 / 13;
+    background-image: var(--background-three);
+}
+
+#pic-four{
+    grid-area: 6 / 1 / 13 / 7;
+    background-image: var(--background-four);
+}
+
+#pic-five{
+    grid-area: 6 / 7 / 13 / 13;
+    background-image: var(--background-five);
 }
